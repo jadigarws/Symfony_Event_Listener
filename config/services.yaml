@@ -25,3 +25,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    # Al crear el Event Listene TokenListener es necesario registrarlo como un servicio
+    # y decirle a Symfony que es un Listener y que está asociado al evento kernel.controller
+    App\EventListener\TokenListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller }
